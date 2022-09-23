@@ -20,14 +20,17 @@ while (!addresses.EndOfStream)
         string street = split[2];
         string city = split[3];
         string province = split[4];
-        string zip = split[5];
+        int zip = int.Parse(split[5]);
         Address address = new Address(name, surname, street, city, province, zip);
         addressList.Add(address);
         Console.WriteLine(address);
     }
-    catch (IndexOutOfRangeException)
+    catch (Exception e)
     {
         Console.WriteLine("Invalid address --> " + line);
+        Console.WriteLine();
+        Console.WriteLine("Please use proper format: Name - Surname - Street - City - Province - ZIP");
+        Console.WriteLine("-------------------");
     }
 }
 
